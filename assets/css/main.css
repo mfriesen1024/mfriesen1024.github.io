@@ -3100,6 +3100,7 @@ input, select, textarea {
 				border: 0;
 			}
 
+		/*
 		#header nav {
 			font-family: Raleway, Helvetica, sans-serif;
 			font-size: 0.8em;
@@ -3111,7 +3112,56 @@ input, select, textarea {
 			right: 0.7em;
 			text-transform: uppercase;
 			top: 0.7em;
+		}*/
+
+		.directory{
+			text-align: center;
+			font-family: Helvetica;
+			margin:0 auto;
+			width: 55em;
 		}
+
+		.directory .inner{
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			flex-direction:column;
+			align-items:center;
+		}
+
+		.directory nav ul{
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			margin-bottom:0;
+			list-style:none;
+			padding-left:0;
+			border:solid 1px #ffffff;
+			border-radius:4px;
+		}
+
+		.directory nav ul li {
+				padding-left: 0;
+				border-left: solid 1px #ffffff;
+			}
+
+				.directory nav ul li:first-child {
+					border-left: 0;
+				}
+
+				.directory nav ul li a {
+					display: block;
+					min-width: 7.5rem;
+					height: 2.75rem;
+					line-height: 2.75rem;
+					padding: 0 1.25rem 0 1.45rem;
+					text-transform: uppercase;
+					letter-spacing: 0.2rem;
+					font-size: 0.8rem;
+					border-bottom: 0;
+				}
 
 			#header nav a {
 				border: 0;
