@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<!--
+    Solid State by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Matthew Friesen</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="../index.html">Matthew Friesen</a></h1>
+        </header>
+
+        <!-- Wrapper -->
+        <section id="wrapper">
+            <header>
+                <div class="inner">
+                    <h2>Finished Projects</h2>
+                    <p>Here is some of the stuff I've made.</p>
+                </div>
+            </header>
+
+            <!-- Navigation -->
+            <div class="directory">
+                <nav>
+                    <div class="inner">
+                        <ul>
+                            <li><a href="#orbmania">Orbmania</a></li>
+                            <li><a href="#chunkgen">Chunk Generator</a></li>
+                            <li><a href="#terraingen">Terrain Generator</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+
+                    <h3 id="orbmania" class="major">Orbmania</h3>
+
+                    <p>Orbmania is a 3d level based adventure where the player takes control of a robotic ball that has been mistakenly been made sentient. Explore as you roll through levels and try to escape the factory.</p>
+
+                    <video class="showcaseMedia" controls autoplay muted loop><source src="../videos/orbmaniaDemo.mp4" type="video/mp4" /></video>
+
+                    <p>This project was mostly focused on the architecture, trying to make a system that is robust enough to endure 3 months of development without being reduced to spaghetti. If I had to judge how my time was spent, I'd say most of it was spent on the following: actually writing code, writing notes from which to code and debugging, split 50/25/25 respectively (see obsidian vault screenshot below).</p>
+
+                    <img class="showcaseMedia" src="../images/orbmaniaNotes.png" />
+
+                    <p>I faced 2 major issues while working on this, in addition to the goals I was focusing on. Firstly, I'm now questioning if I fell into the trap of overplanning. If overscoping means that you have too many things vying for your time at once, I see overplanning as giving something too much forethought that you choke out development time. Secondly, as a symptom of the aforementioned overplanning, I did attempt to overarchitect, and thus overscope certain elements of this project, such that they were left in a spaghettified state. Thankfully though, I did encapsulate the mess enough that it had a fairly minimal impact anywhere else. On the other hand however, my planning now leaves me prepared with more tools for future projects.</p>
+
+                    <p>This project is in an archived state, but is available via Github releases. (<a href="https://github.com/mfriesen1024/Roll-A-Ball-3/releases/latest">click here</a>)</p>
+
+                    <!--
+                    <section class="features">
+                        <article>
+                            <a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+                            <h3 class="major">Sed feugiat lorem</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+                            <a href="#" class="special">Learn more</a>
+                        </article>
+                            -->
+                    <!--
+                        <article>
+                            <a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+                            <h3 class="major">Nisl placerat</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+                            <a href="#" class="special">Learn more</a>
+                        </article>
+                    </section>
+                            -->
+
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="wrapper alt style2">
+                <div class="inner">
+
+                    <h3 id="chunkgen" class="major">Chunk Generator</h3>
+
+                    <p>This was a terrain generation algorithm I designed to loosely resemble how minecraft generates terrain, without having terrible performance, and still feeling "alive".</p>
+
+                    <video class="showcaseMedia" controls autoplay muted loop><source src="../videos/chunkgenDemo.mp4" type="video/mp4" /></video>
+
+                    <p>
+                        For this project, most of my efforts went into the "3d printer effect" as I've been calling it.
+                        I thought it would be a simple way to "bring the project to life", but it turned out to be more difficult than I thought.
+                        For loops appear to not be designed for being split apart in the way I needed, but I realized it far too late, and eventually had to redo the entire iteration system.
+                    </p>
+
+                    <p>Here's the final code responsible for placing terrain.</p>
+
+                    <pre>
+<code>
+void PlaceBlocks()
+{
+    bool b = false;
+    // Now, check for adjacent blocks other than air. If we get 6 directly adjacent, or the block is air, don't render the block. Otherwise, place it.
+    while (x < blockTypes.GetLength(2) && y < blockTypes.GetLength(1) && z < blockTypes.GetLength(0))
+    {
+        if (b) { return; }
+
+        // bools for negative/positive in each direction.
+        bool xn, xp, yn, yp, zn, zp;
+        // Check if there's air, and if index out of range, set false.
+        try { xn = RenderCheck(x - 1, y, z); } catch { xn = false; }
+        try { xp = RenderCheck(x + 1, y, z); } catch { xp = false; }
+        try { yn = RenderCheck(x, y - 1, z); } catch { yn = false; }
+        try { yp = RenderCheck(x, y + 1, z); } catch { yp = false; }
+        try { zn = RenderCheck(x, y, z - 1); } catch { zn = false; }
+        try { zp = RenderCheck(x, y, z + 1); } catch { zp = false; }
+
+        // Now compare everything.
+        bool adjacencyCheck = !(xn && xp && yn && yp && zn && zp);
+        BlockType blockType = blockTypes[x, y, z];
+        if (blockType != BlockType.Air && adjacencyCheck)
+        {
+            PlaceBlock(x, y, z, blockTypes[x, y, z]); count++; if (count >= data.blocksPerTick) { b = true; }
+        }
+        UpdateXYZ();
+    }
+    Debug.Log($"4 {x},{y},{z}");
+    if (b) return;
+    Debug.Log($"Finished generation in {framesToGenerate} frames."); ready = false;
+}
+
+void UpdateXYZ()
+{
+    z++;
+    if (z >= blockTypes.GetLength(2)) { z = 0; x++; }
+    if (x >= blockTypes.GetLength(0)) { x = 0; y++; }
+    Console.WriteLine("" + x + y + z);
+}
+</code>
+</pre>
+
+                    <!--
+                    <section class="features">
+                        <article>
+                            <a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+                            <h3 class="major">Sed feugiat lorem</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+                            <a href="#" class="special">Learn more</a>
+                        </article>
+                        <article>
+                            <a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+                            <h3 class="major">Nisl placerat</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+                            <a href="#" class="special">Learn more</a>
+                        </article>
+                    </section>
+                    -->
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+
+                    <h3 id="terraingen" class="major">Unity Mesh Generator</h3>
+
+                    <p>
+                        This was a terrain generator designed to generate a singular mesh.
+                        My goal was to have terrain such that I could have mountains off in one corner of the map, plains in another and a jungle somewhere else.
+                        Unfortunately, that didn't go to plan, as some maths errors and lerping issues caused my colour interpolation to not work.
+                        Had I given myself more time, I might have been able to resolve it.
+                    </p>
+
+                    <img class="showcaseMedia" src="../images/terraingenDemo.jpg" />
+
+                    <!--
+                    <section class="features">
+                        <article>
+                            <a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+                            <h3 class="major">Sed feugiat lorem</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+                            <a href="#" class="special">Learn more</a>
+                        </article>
+                        <article>
+                            <a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+                            <h3 class="major">Nisl placerat</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+                            <a href="#" class="special">Learn more</a>
+                        </article>
+                    </section>
+                    -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="inner">
+                <h2 class="major">Get in touch</h2>
+                <p>If you've got anything interesting going on, feel free to contact me.</p>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope"><a href="mailto:mfriesen1024@gmail.com">mfriesen1024@gmail.com</a></li>
+                    <li class="icon brands fa-github"><a href="https://github.com/mfriesen1024">mfriesen1024</a></li>
+                    <li class="icon brands fa-youtube"><a href="https://www.youtube.com/@mFriesen1024">@mFriesen1024</a></li>
+                    <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/mfriesen1024/">mfriesen1024</a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Matthew Friesen 2024, All rights reserved.</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
