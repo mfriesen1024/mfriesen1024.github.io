@@ -100,6 +100,52 @@
                         For loops appear to not be designed for being split apart in the way I needed, but I realized it far too late, and eventually had to redo the entire iteration system.
                     </p>
 
+                    <p>Here's the final code responsible for placing terrain.</p>
+
+                    <pre>
+<code>
+void PlaceBlocks()
+{
+    bool b = false;
+    // Now, check for adjacent blocks other than air. If we get 6 directly adjacent, or the block is air, don't render the block. Otherwise, place it.
+    while (x < blockTypes.GetLength(2) && y < blockTypes.GetLength(1) && z < blockTypes.GetLength(0))
+    {
+        if (b) { return; }
+
+        // bools for negative/positive in each direction.
+        bool xn, xp, yn, yp, zn, zp;
+        // Check if there's air, and if index out of range, set false.
+        try { xn = RenderCheck(x - 1, y, z); } catch { xn = false; }
+        try { xp = RenderCheck(x + 1, y, z); } catch { xp = false; }
+        try { yn = RenderCheck(x, y - 1, z); } catch { yn = false; }
+        try { yp = RenderCheck(x, y + 1, z); } catch { yp = false; }
+        try { zn = RenderCheck(x, y, z - 1); } catch { zn = false; }
+        try { zp = RenderCheck(x, y, z + 1); } catch { zp = false; }
+
+        // Now compare everything.
+        bool adjacencyCheck = !(xn && xp && yn && yp && zn && zp);
+        BlockType blockType = blockTypes[x, y, z];
+        if (blockType != BlockType.Air && adjacencyCheck)
+        {
+            PlaceBlock(x, y, z, blockTypes[x, y, z]); count++; if (count >= data.blocksPerTick) { b = true; }
+        }
+        UpdateXYZ();
+    }
+    Debug.Log($"4 {x},{y},{z}");
+    if (b) return;
+    Debug.Log($"Finished generation in {framesToGenerate} frames."); ready = false;
+}
+
+void UpdateXYZ()
+{
+    z++;
+    if (z >= blockTypes.GetLength(2)) { z = 0; x++; }
+    if (x >= blockTypes.GetLength(0)) { x = 0; y++; }
+    Console.WriteLine("" + x + y + z);
+}
+</code>
+</pre>
+
                     <!--
                     <section class="features">
                         <article>
