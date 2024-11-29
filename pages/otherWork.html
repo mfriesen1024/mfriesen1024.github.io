@@ -36,8 +36,8 @@
                 <nav>
                     <div class="inner">
                         <ul>
+                            <li><a href="#nebula">Nebula</a></li>
                             <li><a href="#tmMapCS">crimson Silence</a></li>
-                            <li><a href="#chunkgen">Chunk Generator</a></li>
                             <li><a href="#terraingen">Terrain Generator</a></li>
                         </ul>
                     </div>
@@ -46,6 +46,26 @@
 
             <!-- Content -->
             <div class="wrapper">
+                <div class="inner">
+
+                    <h3 id="nebula" class="major">Nebula</h3>
+
+                    <p>
+                        This is my procedural nebula project, having seen so far 5 iterations over the roughly 2 years I've been working on it.
+                        The general process is: 1. Define where the gas is coming from, and what colours should be emitted when/where.
+                        This is usually done via blender's geonodes in one way or another, but ultimately varies based on what ideas I want to try on a given iteration.
+                        2. Define a domain, and any gravity emission objects we want, such as a black hole, or a neutron star that may have caused the nebula.
+                        3. Simulate the gasses.
+                        4. Use the simulation to define where stars should go.
+                        5. Add shaders and render.
+                    </p>
+
+                    <img class="showcaseMedia" src="https://cdn.discordapp.com/attachments/753286280120500244/1297967933447868526/NebulaV5.png?ex=674b44d6&is=6749f356&hm=d0139b0d971dabd90296f46b61f12ad4bfe8421140c2197be1d1c546374e86e0&"/>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="wrapper alt style2">
                 <div class="inner">
 
                     <h3 id="tmMapCS" class="major">TM2020 Mapping: crimson Silence</h3>
@@ -60,87 +80,6 @@
                     <iframe class="showcaseMedia" src="https://drive.google.com/file/d/1_IaKNCrc1Whpz_636I-AZ6Fpwh52IMss/preview" width="1200" height="680"></iframe>
 
                     <p>This project is released, but the series is not finished. The map is available on TMX: (<a href="https://trackmania.exchange/tracks/view/184085/crimson-silence">click here</a>)</p>
-                </div>
-            </div>
-
-            <!-- Content -->
-            <div class="wrapper alt style2">
-                <div class="inner">
-
-                    <h3 id="chunkgen" class="major">Chunk Generator</h3>
-
-                    <p>This was a terrain generation algorithm I designed to loosely resemble how minecraft generates terrain, without having terrible performance, and still feeling "alive".</p>
-
-                    <video class="showcaseMedia" controls autoplay muted loop><source src="../videos/chunkgenDemo.mp4" type="video/mp4" /></video>
-
-                    <p>
-                        For this project, most of my efforts went into the "3d printer effect" as I've been calling it.
-                        I thought it would be a simple way to "bring the project to life", but it turned out to be more difficult than I thought.
-                        For loops appear to not be designed for being split apart in the way I needed, but I realized it far too late, and eventually had to redo the entire iteration system.
-                    </p>
-
-                    <p>Here's the final code responsible for placing terrain.</p>
-
-                    <pre>
-<code>
-void PlaceBlocks()
-{
-    bool b = false;
-    // Now, check for adjacent blocks other than air. If we get 6 directly adjacent, or the block is air, don't render the block. Otherwise, place it.
-    while (x < blockTypes.GetLength(2) && y < blockTypes.GetLength(1) && z < blockTypes.GetLength(0))
-    {
-        if (b) { return; }
-
-        // bools for negative/positive in each direction.
-        bool xn, xp, yn, yp, zn, zp;
-        // Check if there's air, and if index out of range, set false.
-        try { xn = RenderCheck(x - 1, y, z); } catch { xn = false; }
-        try { xp = RenderCheck(x + 1, y, z); } catch { xp = false; }
-        try { yn = RenderCheck(x, y - 1, z); } catch { yn = false; }
-        try { yp = RenderCheck(x, y + 1, z); } catch { yp = false; }
-        try { zn = RenderCheck(x, y, z - 1); } catch { zn = false; }
-        try { zp = RenderCheck(x, y, z + 1); } catch { zp = false; }
-
-        // Now compare everything.
-        bool adjacencyCheck = !(xn && xp && yn && yp && zn && zp);
-        BlockType blockType = blockTypes[x, y, z];
-        if (blockType != BlockType.Air && adjacencyCheck)
-        {
-            PlaceBlock(x, y, z, blockTypes[x, y, z]); count++; if (count >= data.blocksPerTick) { b = true; }
-        }
-        UpdateXYZ();
-    }
-    Debug.Log($"4 {x},{y},{z}");
-    if (b) return;
-    Debug.Log($"Finished generation in {framesToGenerate} frames."); ready = false;
-}
-
-void UpdateXYZ()
-{
-    z++;
-    if (z >= blockTypes.GetLength(2)) { z = 0; x++; }
-    if (x >= blockTypes.GetLength(0)) { x = 0; y++; }
-    Console.WriteLine("" + x + y + z);
-}
-</code>
-</pre>
-
-                    <!--
-                    <section class="features">
-                        <article>
-                            <a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-                            <h3 class="major">Sed feugiat lorem</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-                            <a href="#" class="special">Learn more</a>
-                        </article>
-                        <article>
-                            <a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-                            <h3 class="major">Nisl placerat</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-                            <a href="#" class="special">Learn more</a>
-                        </article>
-                    </section>
-                    -->
                 </div>
             </div>
 
