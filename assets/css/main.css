@@ -3138,6 +3138,7 @@ input, select, textarea {
 			border:solid 1px #ffffff;
 			border-radius:4px;
 		}
+			
 
 		.directory nav ul li {
 				padding-left: 0;
@@ -3219,6 +3220,15 @@ input, select, textarea {
 
 		@media screen and (max-width: 736px) {
 
+            .directory nav ul {
+                -moz-flex-direction: column;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                min-width: 10rem;
+                max-width: 100%;
+            }
+
 			#header {
 				height: 2.75em;
 				line-height: 2.75em;
@@ -3249,6 +3259,15 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 480px) {
+
+			.directory nav ul {
+				-moz-flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				min-width: 10rem;
+				max-width: 100%;
+			}
 
 			#header nav a[href="#menu"] {
 				width: 4em;
