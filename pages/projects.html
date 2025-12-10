@@ -38,6 +38,7 @@
                         <ul>
                             <li><a href="#orbmania">Orbmania</a></li>
                             <li><a href="#chunkgen">Chunk Generator</a></li>
+                            <li><a href="#silverstream">Catastrophe in Fluffsburg</a></li>
                             <li><a href="#terraingen">Terrain Generator</a></li>
                         </ul>
                     </div>
@@ -51,7 +52,7 @@
                     <h3 id="orbmania" class="major">Orbmania</h3>
                     <div class="meta">
                         <p><b>Role: </b>"Lead Tinkerer" (solo dev)</p>
-                        <p><b>Software Used: </b>Godot Engine, Blender, VS, Github</p>
+                        <p><b>Software Used: </b>Godot Engine, Blender, VS, GitHub</p>
                         <p><b>Timeframe: </b>Sept. 2024 - Nov. 2024</p>
                     </div>
                     <h6 class="major"></h6>
@@ -66,7 +67,7 @@
 
                     <p>I faced 2 major issues while working on this, in addition to the goals I was focusing on. Firstly, I'm now questioning if I fell into the trap of overplanning. If overscoping means that you have too many things vying for your time at once, I see overplanning as giving something too much forethought that you choke out development time. Secondly, as a symptom of the aforementioned overplanning, I did attempt to overarchitect, and thus overscope certain elements of this project, such that they were left in a spaghettified state. Thankfully though, I did encapsulate the mess enough that it had a fairly minimal impact anywhere else. On the other hand however, my planning now leaves me prepared with more tools for future projects.</p>
 
-                    <p>This project is in an archived state, but is available via Github releases. (<a href="https://github.com/mfriesen1024/Roll-A-Ball-3/releases/latest">click here</a>)</p>
+                    <p>This project is in an archived state, but is available via GitHub releases. (<a href="https://github.com/mfriesen1024/Roll-A-Ball-3/releases/latest">click here</a>)</p>
 
                     <!--
                     <section class="features">
@@ -97,7 +98,7 @@
                     <h3 id="chunkgen" class="major">Chunk Generator</h3>
                     <div class="meta">
                         <p><b>Role: </b>Programmer (solo)</p>
-                        <p><b>Software Used: </b>Unity Engine, VS, Github</p>
+                        <p><b>Software Used: </b>Unity Engine, VS, GitHub</p>
                         <p><b>Timeframe: </b>Nov. 2024</p>
                     </div>
                     <h6 class="major"></h6>
@@ -178,13 +179,129 @@ void UpdateXYZ()
             </div>
 
             <!-- Content -->
-            <div class="wrapper">
+            <div class="wrapper style1">
+                <div class="inner">
+
+                    <h3 id="silverstream" class="major">Chunk Generator</h3>
+                    <div class="meta">
+                        <p><b>Role: </b>Generalist Programmer</p>
+                        <p><b>Software Used: </b>Unity Engine, Rider, GIMP, GitHub</p>
+                        <p><b>Timeframe: </b>Sep. 2025 - Dec. 2025</p>
+                    </div>
+                    <h6 class="major"></h6>
+
+                    <p>I was tasked with creating an upgrade style game for a class. Our biggest goal was to avoid scope creep, and I think we did that well.</p>
+
+                    <p> The biggest issues we encountered arose from team norms.</p>
+                        <ul>
+                            <li>Implicit team norms lead to disorganization and communication failures.</li>
+                            <li>Inability to hold daily standup meetings led to further communication failures.</li>
+                            <li>
+                                A lack of a CONTRIBUTING.md document such as
+                                <a href="https://github.com/ppy/osu/blob/master/CONTRIBUTING.md">this</a>
+                                lead to poor git practices such as empty merges and overwriting changes, and led to large merge conflicts.
+                            </li>
+                        </ul>
+
+                        <p>In addition, Unity's "<i>personality</i>" is often worse when you have to use an unofficial wrapper.
+                            Frequent crashing, inability to debug things, vanishing configs. None of them worth it to use unity on EOS.
+                            It would be nice if there was an AUR package for it, but oh well.
+                            When I switched to mint to use an official package that problem went away entirely.</p>
+
+                    <p>One thing I found useful for workflow was exposing events and child components via helper components.
+                        Here's the code responsible for button functionality.</p>
+
+                    <pre>
+<code>
+public class ButtonHelper:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+{
+    public Action Pressed; // We should allow error logging if there's nothing here when clicked.
+    public Action Hovered = EventSystem.DoNothing;
+    public Action Init = EventSystem.DoNothing;
+    public Action TextInit = EventSystem.DoNothing;
+
+    public Button Button { get; private set; }
+    public TextMeshProUGUI Text { get; private set; }
+    public Image Image { get; private set; }
+
+    Sprite spriteNormal;
+    [SerializeField] Sprite spriteHover;
+
+    void Start()
+    {
+        Button = GetComponent&lt;Button>();
+        Button.onClick.AddListener(_pressed);
+
+        if (TryGetComponent(out Image image))
+        {
+            Image = image;
+            spriteNormal=image.sprite;
+        }
+        else throw new NullReferenceException();
+
+        try
+        {
+            if (transform.GetChild(0).TryGetComponent(out TextMeshProUGUI text))
+            {
+                Text = text;
+                TextInit();
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
+        // Exposes the listener as if it were a Godot button.
+        void _pressed()
+        {
+            Pressed();
+        }
+    }
+
+    // Exposes button hover functionality.
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Hovered();
+        if(spriteHover) Image.sprite = spriteHover;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Image.sprite = spriteNormal;
+    }
+}
+</code>
+</pre>
+                    <p>If I were to do this again on a larger scale, I would have used null coalescing operators for invocation, though due to the scale at the time, there was no notable performance impact.</p>
+
+                    <!--
+                    <section class="features">
+                        <article>
+                            <a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+                            <h3 class="major">Sed feugiat lorem</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+                            <a href="#" class="special">Learn more</a>
+                        </article>
+                        <article>
+                            <a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+                            <h3 class="major">Nisl placerat</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+                            <a href="#" class="special">Learn more</a>
+                        </article>
+                    </section>
+                    -->
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="wrapper alt style2">
                 <div class="inner">
 
                     <h3 id="terraingen" class="major">Unity Mesh Generator</h3>
                     <div class="meta">
                         <p><b>Role: </b>Programmer (solo)</p>
-                        <p><b>Software Used: </b>Unity Engine, VS, Github</p>
+                        <p><b>Software Used: </b>Unity Engine, VS, GitHub</p>
                         <p><b>Timeframe: </b>Nov. 2024</p>
                     </div>
                     <h6 class="major"></h6>
@@ -232,7 +349,7 @@ void UpdateXYZ()
                 </ul>
                 <ul class="copyright">
                     <li>&copy; Matthew Friesen 2025, All rights reserved.</li>
-                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
                 </ul>
             </div>
         </section>
