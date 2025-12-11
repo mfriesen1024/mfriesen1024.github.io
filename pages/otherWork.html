@@ -7,185 +7,261 @@
 <html>
 <head>
     <title>Matthew Friesen</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
 </head>
 <body>
 
-    <!-- Page Wrapper -->
-    <div id="page-wrapper">
+<!-- Page Wrapper -->
+<div id="page-wrapper">
 
-        <!-- Header -->
-        <header id="header">
-            <h1><a href="../index.html">Matthew Friesen</a></h1>
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="../index.html">Matthew Friesen</a></h1>
+    </header>
+
+    <!-- Wrapper -->
+    <section id="wrapper">
+        <header>
+            <div class="inner">
+                <h2>Other Work</h2>
+                <p>Here is some of the projects I've worked on that might still be in progress.</p>
+            </div>
         </header>
 
-        <!-- Wrapper -->
-        <section id="wrapper">
-            <header>
+        <!-- Navigation -->
+        <div class="directory">
+            <nav>
                 <div class="inner">
-                    <h2>Other Work</h2>
-                    <p>Here is some of the projects I've worked on that might still be in progress.</p>
+                    <ul>
+                        <li><a href="#nebula">Nebula</a></li>
+                        <li><a href="#mountain-bg">Mountain Background</a></li>
+                        <li><a href="#binary-serializer">Binary Serializer</a></li>
+                        <li><a href="#tmMapCS">crimson Silence</a></li>
+                        <li><a href="#oMapTWSRW">osu! Mapping</a></li>
+                    </ul>
                 </div>
-            </header>
+            </nav>
+        </div>
 
-            <!-- Navigation -->
-            <div class="directory">
-                <nav>
-                    <div class="inner">
-                        <ul>
-                            <li><a href="#nebula">Nebula</a></li>
-                            <li><a href="#mountain-bg">Mountain Background</a></li>
-                            <li><a href="#tmMapCS">crimson Silence</a></li>
-                            <li><a href="#oMapTWSRW">osu! Mapping</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-
-            <!-- Content -->
-            <div class="wrapper">
-                <div class="inner">
-
-                    <h3 id="nebula" class="major">Nebula</h3>
-                    <div class="meta">
-                        <p><b>Role: </b>Solo Tech Artist</p>
-                        <p><b>Software Used: </b>Blender</p>
-                        <p><b>Timeframe: </b>Aug. 2022 - Ongoing</p>
-                    </div>
-                    <h6 class="major"></h6>
-
-                    <p>
-                        This is my procedural nebula project, having seen so far 5 primary iterations over the roughly 2 years I've been working on it.
-                        The general process is: 1. Define where the gas is coming from, and what colours should be emitted when/where.
-                        This is usually done via blender's geonodes in one way or another, but ultimately varies based on what ideas I want to try on a given iteration.
-                        2. Define a domain, and any gravity emission objects we want, such as a black hole, or a neutron star that may have caused the nebula.
-                        3. Simulate the gasses.
-                        4. Use the simulation to define where stars should go.
-                        5. Add shaders and render.
-                    </p>
-
-                    <img class="showcaseMedia" alt="This image might be broken." src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.1-other/NebulaV5.png">
-
-                    <p>A background shader offshoot of this project (produced about a month before I began iteration 5) can be seen as the background of <a href="https://theeoblivion.itch.io/overkill">Overkill</a> by Merlyn!</p>
-                </div>
-            </div>
-
-            <!-- Content -->
-            <div class="wrapper alt style2">
-                <div class="inner">
-
-                    <h3 id="mountain-bg" class="major">Mountain Background</h3>
-                    <div class="meta">
-                        <p><b>Role: </b>Solo Tech Artist</p>
-                        <p><b>Software Used: </b>Blender</p>
-                        <p><b>Timeframe: </b>Nov 2025 - Ongoing</p>
-                    </div>
-                    <h6 class="major"></h6>
-
-                    <p>
-                        I needed a background piece for multiple projects, and a snowy mountain seemed like the perfect fit.
-                    </p>
-                    <p>
-                        I ended up using 5 A.N.T. terrain pieces to create the mountains, some quick dyntopo sculpting to tweak a few things, and a procedural shader material used to add snow.
-                    </p>
-                    <p>This is still in progress. The snow needs work, and the surrounding terrain still feels too patterned.</p>
-                    <p>
-                        In order to implement them I will likely have to split some of them up with DIY LoDs and bake some of the textures.
-                    </p>
-
-                    <img class="showcaseMedia" src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.4-other/MountainRender.png" alt="This image might be broken.">
-                </div>
-            </div>
-
-            <!-- Content -->
-            <div class="wrapper">
-                <div class="inner">
-
-                    <h3 id="tmMapCS" class="major">TM2020 Mapping: crimson Silence</h3>
-                    <div class="meta">
-                        <p><b>Role: </b>Solo Mapper</p>
-                        <p><b>Software Used: </b>TM2020 Editor</p>
-                        <p><b>Timeframe: </b>July. 2024 - Jan 2025</p>
-                    </div>
-                    <h6 class="major"></h6>
-
-                    <p>
-                        "crimson Silence" is a map I made for a weekly TM2020 speedmapping event, while also attempting to build up a series of maps trying to focus on clean but precise flow, while fitting the requirements of the event.
-                        This particular event required 1: Stadium car only 2: A slow section of the wood house blocks (1-4-1-x), 3: Use of "sausage blocks" (1-3-x).
-                    </p>
-
-                    <!--<video class="showcaseMedia" controls autoplay muted loop><source src="../videos/orbmaniaDemo.mp4" type="video/mp4" /></video>-->
-
-                    <video class="showcaseMedia" controls src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.1-other/Crimson_Silence.mp4">This video is borked.</video>
-
-                    <p>This project is released, but the series is not finished. The map is available on TMX: (<a href="https://trackmania.exchange/tracks/view/184085/crimson-silence">click here</a>)</p>
-                </div>
-            </div>
-
-            <div class="wrapper alt style2">
-                <div class="inner">
-
-
-                    <h3 id="oMapTWSRW" class="major">osu! Mapping: The War Still Rages Within</h3>
-                    <div class="meta">
-                        <p><b>Role: </b>Solo Mapper</p>
-                        <p><b>Software Used: </b>osu!lazer Map Editor</p>
-                        <p><b>Timeframe: </b>Oct. 2025</p>
-                    </div>
-                    <h6 class="major"></h6>
-
-                    <p>
-                        This was an osu!standard map that I made for the ending of
-                        <a href="https://www.youtube.com/watch?v=e8_Fr97JRzg">The War Still Rages Within</a> by Jamie Christopherson.
-                    </p>
-
-                    <video class="showcaseMedia" controls src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.4-other/0331-2730.mp4">This video is borked.</video>
-                </div>
-            </div>
-
-            <!-- Content -->
-            <!--
-            <div class="wrapper">
-                <div class="inner">
-                    <h3 id="unannounced" class="major">Unannounced Projects</h3>
-
-                    <h5 id="java">Unannounced Godot Project</h5>
-                    <div class="meta">
-                        <p><b>Role: </b>Solo Dev</p>
-                        <p><b>Software Used: </b>VS, Godot Engine, GitHub</p>
-                        <p><b>Timeframe: </b>Oct. 2024 - Ongoing</p>
-                    </div>
-                    <h6 class="major"></h6>
-
-                    <p>
-                        A story driven "hack 'n slash" style adventure that I am keeping under wraps for now.
-                    </p>
-                </div>
-            </div>
-            -->
-
-        </section>
-
-        <!-- Footer -->
-        <section id="footer">
+        <!-- Content -->
+        <div class="wrapper">
             <div class="inner">
-                <h2 class="major">Get in touch</h2>
-                <p>If you've got anything interesting going on, feel free to contact me.</p>
-                <ul class="contact">
-                    <li class="icon solid fa-envelope"><a href="mailto:mfriesen1024@gmail.com">mfriesen1024@gmail.com</a></li>
-                    <li class="icon brands fa-github"><a href="https://github.com/mfriesen1024">mfriesen1024</a></li>
-                    <li class="icon brands fa-youtube"><a href="https://www.youtube.com/@mFriesen1024">@mFriesen1024</a></li>
-                    <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/mfriesen1024/">mfriesen1024</a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; Matthew Friesen 2025, All rights reserved.</li>
-                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                </ul>
+
+                <h3 id="nebula" class="major">Nebula</h3>
+                <div class="meta">
+                    <p><b>Role: </b>Solo Tech Artist</p>
+                    <p><b>Software Used: </b>Blender</p>
+                    <p><b>Timeframe: </b>Aug. 2022 - Ongoing</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <p>
+                    This is my procedural nebula project, having seen so far 5 primary iterations over the roughly 2
+                    years I've been working on it.
+                    The general process is: 1. Define where the gas is coming from, and what colours should be emitted
+                    when/where.
+                    This is usually done via blender's geonodes in one way or another, but ultimately varies based on
+                    what ideas I want to try on a given iteration.
+                    2. Define a domain, and any gravity emission objects we want, such as a black hole, or a neutron
+                    star that may have caused the nebula.
+                    3. Simulate the gasses.
+                    4. Use the simulation to define where stars should go.
+                    5. Add shaders and render.
+                </p>
+
+                <img class="showcaseMedia" alt="This image might be broken."
+                     src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.1-other/NebulaV5.png">
+
+                <p>A background shader offshoot of this project (produced about a month before I began iteration 5) can
+                    be seen as the background of <a href="https://theeoblivion.itch.io/overkill">Overkill</a> by Merlyn!
+                </p>
             </div>
-        </section>
-    </div>
+        </div>
+
+        <!-- Content -->
+        <div class="wrapper alt style2">
+            <div class="inner">
+
+                <h3 id="mountain-bg" class="major">Mountain Background</h3>
+                <div class="meta">
+                    <p><b>Role: </b>Solo Tech Artist</p>
+                    <p><b>Software Used: </b>Blender</p>
+                    <p><b>Timeframe: </b>Nov 2025 - Ongoing</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <p>
+                    I needed a background piece for multiple projects, and a snowy mountain seemed like the perfect fit.
+                </p>
+                <p>
+                    I ended up using 5 A.N.T. terrain pieces to create the mountains, some quick dyntopo sculpting to
+                    tweak a few things, and a procedural shader material used to add snow.
+                </p>
+                <p>This is still in progress. The snow needs work, and the surrounding terrain still feels too
+                    patterned.</p>
+                <p>
+                    In order to implement them I will likely have to split some of them up with DIY LoDs and bake some
+                    of the textures.
+                </p>
+
+                <img class="showcaseMedia"
+                     src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.4-other/MountainRender.png"
+                     alt="This image might be broken.">
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+
+
+                <h3 id="binary-serializer" class="major">Binary Serializer</h3>
+                <div class="meta">
+                    <p><b>Role: </b>Lead Programmer</p>
+                    <p><b>Software Used: </b>Rider, GitHub</p>
+                    <p><b>Timeframe: </b>Nov. 2025 - Ongoing</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <p>
+                    This was the second iteration of a binary serialization interface that is now a part of a utility
+                    library I've been contributing to.
+                </p>
+                <p>Our team needed a flexible solution that didn't introduce the possibility of ACE/RCE exploits where
+                    this would be used with netcode, so we reinvented the wheel.</p>
+
+                <p>Here's the overarching method managing deserialization.</p>
+                <pre>
+                        <code>
+/// &lt;summary>
+/// Converts a string of bytes to an object of an implementing type.
+/// &lt;/summary>
+/// &lt;param name="bytes">The bytes to attempt to convert.&lt;/param>
+/// &lt;returns>The resulting object cast to &lt;c>IBinarySerializable&lt;/c>.&lt;/returns>
+public static IBinarySerializable FromBinary(byte[] bytes)
+{
+    var list = bytes.ToList();
+    ushort id = BitConverter.ToUInt16(list.GetRange(0, 2).ToArray());
+
+    int offset = 2;
+
+    SerializerConfig config = CheckTypeRegistration(id);
+
+    var padding = GetPadding(config, list, offset);
+
+    offset += config.PaddingCount*PaddingInfoBase.Length(config.PaddingType);
+
+    return BuildResult(config, list, offset, padding);
+}
+                        </code>
+                    </pre>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="wrapper alt style2">
+            <div class="inner">
+
+                <h3 id="tmMapCS" class="major">TM2020 Mapping: crimson Silence</h3>
+                <div class="meta">
+                    <p><b>Role: </b>Solo Mapper</p>
+                    <p><b>Software Used: </b>TM2020 Editor</p>
+                    <p><b>Timeframe: </b>July. 2024 - Jan 2025</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <p>
+                    "crimson Silence" is a map I made for a weekly TM2020 speedmapping event, while also attempting to
+                    build up a series of maps trying to focus on clean but precise flow, while fitting the requirements
+                    of the event.
+                    This particular event required 1: Stadium car only 2: A slow section of the wood house blocks
+                    (1-4-1-x), 3: Use of "sausage blocks" (1-3-x).
+                </p>
+
+                <!--<video class="showcaseMedia" controls autoplay muted loop><source src="../videos/orbmaniaDemo.mp4" type="video/mp4" /></video>-->
+
+                <video class="showcaseMedia" controls
+                       src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.1-other/Crimson_Silence.mp4">
+                    This video is borked.
+                </video>
+
+                <p>This project is released, but the series is not finished. The map is available on TMX: (<a
+                        href="https://trackmania.exchange/tracks/view/184085/crimson-silence">click here</a>)</p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+
+
+                <h3 id="oMapTWSRW" class="major">osu! Mapping: The War Still Rages Within</h3>
+                <div class="meta">
+                    <p><b>Role: </b>Solo Mapper</p>
+                    <p><b>Software Used: </b>osu!lazer Map Editor</p>
+                    <p><b>Timeframe: </b>Oct. 2025</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <p>
+                    This was an osu!standard map that I made for the ending of
+                    <a href="https://www.youtube.com/watch?v=e8_Fr97JRzg">The War Still Rages Within</a> by Jamie
+                    Christopherson.
+                </p>
+
+                <video class="showcaseMedia" controls
+                       src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.4-other/0331-2730.mp4">This
+                    video is borked.
+                </video>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <!--
+        <div class="wrapper">
+            <div class="inner">
+                <h3 id="unannounced" class="major">Unannounced Projects</h3>
+
+                <h5 id="java">Unannounced Godot Project</h5>
+                <div class="meta">
+                    <p><b>Role: </b>Solo Dev</p>
+                    <p><b>Software Used: </b>VS, Godot Engine, GitHub</p>
+                    <p><b>Timeframe: </b>Oct. 2024 - Ongoing</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <p>
+                    A story driven "hack 'n slash" style adventure that I am keeping under wraps for now.
+                </p>
+            </div>
+        </div>
+        -->
+
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="inner">
+            <h2 class="major">Get in touch</h2>
+            <p>If you've got anything interesting going on, feel free to contact me.</p>
+            <ul class="contact">
+                <li class="icon solid fa-envelope"><a href="mailto:mfriesen1024@gmail.com">mfriesen1024@gmail.com</a>
+                </li>
+                <li class="icon brands fa-github"><a href="https://github.com/mfriesen1024">mfriesen1024</a></li>
+                <li class="icon brands fa-youtube"><a href="https://www.youtube.com/@mFriesen1024">@mFriesen1024</a>
+                </li>
+                <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/mfriesen1024/">mfriesen1024</a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Matthew Friesen 2025, All rights reserved.</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
 </body>
 </html>
