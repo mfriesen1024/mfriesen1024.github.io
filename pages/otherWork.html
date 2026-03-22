@@ -87,30 +87,39 @@
         <div class="wrapper alt style2">
             <div class="inner">
 
-                <h3 id="mountain-bg" class="major">Mountain Background</h3>
+                <h3 id="engineRoom" class="major">Hyperdrive Room</h3>
                 <div class="meta">
                     <p><b>Role: </b>Solo Tech Artist</p>
-                    <p><b>Software Used: </b>Blender</p>
-                    <p><b>Timeframe: </b>Nov 2025 - Ongoing</p>
+                    <p><b>Software Used: </b>Blender, Git</p>
+                    <p><b>Timeframe: </b>Feb 2026 - Mar 2026</p>
                 </div>
                 <h6 class="major"></h6>
 
+                <h6>Why?</h6>
                 <p>
-                    I needed a background piece for multiple projects, and a snowy mountain seemed like the perfect fit.
+                    One of my mentors started a weekly art challenge, similar to a game jam but mostly art focused.
+                    I was rather inspired by one such theme, "engine".
+                    I chose to make a sci-fi engine room of sorts, loosely inspired by Star Wars and Star Trek.
+                </p>
+                <h6>How?</h6>
+                <p>
+                    Starting with a reactor core, I began blocking out the shape of it with primitives,
+                    then adding details with modifiers to keep things non-destructive.
+                    When adding the injector tanks, I noticed 8 verts felt sharp for a cylinder, so I gave it smooth shading.
                 </p>
                 <p>
-                    I ended up using 5 A.N.T. terrain pieces to create the mountains, some quick dyntopo sculpting to
-                    tweak a few things, and a procedural shader material used to add snow.
+                    At that point I started losing my mind just placing primitives, so I started on shaders.
+                    A lot of this fell down to getting noise values right for the reactors.
+                    I used 2 passes (1 for volume scatter and 1 for emission) with shared noise/colour ramp to get it to glow.
                 </p>
-                <p>This is still in progress. The snow needs work, and the surrounding terrain still feels too
-                    patterned.</p>
+
+                <h6>So what's next?</h6>
                 <p>
-                    In order to implement them I will likely have to split some of them up with DIY LoDs and bake some
-                    of the textures.
+                    I think I need to focus on cinematography next, getting my lighting and framing/composition down next.
                 </p>
 
                 <img class="showcaseMedia"
-                     src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.4-other/MountainRender.png"
+                     src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.4-other/EngineRoomRender.png"
                      alt="This image might be broken.">
             </div>
         </div>
