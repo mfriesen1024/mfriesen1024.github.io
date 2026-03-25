@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<!--
+    Solid State by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Matthew Friesen</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body>
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="../index.html">Matthew Friesen</a></h1>
+    </header>
+
+    <!-- Wrapper -->
+    <section id="wrapper">
+        <header>
+            <div class="inner">
+                <h2>Tech Art</h2>
+                <p>Here is some of my technical art stuff.</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <div class="directory">
+            <nav>
+                <div class="inner">
+                    <ul>
+                        <li><a href="#nebula">Nebula</a></li>
+                        <li><a href="#engineRoom">Hyperdrive Room</a></li>
+                        <li><a href="#binary-serializer">Binary Serializer</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Content -->
+        <div class="wrapper">
+            <div class="inner">
+
+                <h3 id="nebula" class="major">Nebula</h3>
+                <div class="meta">
+                    <p><b>Role: </b>Solo Tech Artist</p>
+                    <p><b>Software Used: </b>Blender</p>
+                    <p><b>Timeframe: </b>Aug. 2022 - Dec. 2024</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <p>
+                    This is my procedural nebula project, having seen so far 5 primary iterations over the roughly 2
+                    years I'd been working on it.
+                    The general process is: 1. Define where the gas is coming from, and what colours should be emitted
+                    when/where.
+                    This is usually done via blender's geonodes in one way or another, but ultimately varies based on
+                    what ideas I want to try on a given iteration.
+                    2. Define a domain, and any gravity emission objects we want, such as a black hole, or a neutron
+                    star that may have caused the nebula.
+                    3. Simulate the gasses.
+                    4. Use the simulation to define where stars should go.
+                    5. Add shaders and render.
+                </p>
+
+                <img class="showcaseMedia" alt="This image might be broken."
+                     src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.1-other/NebulaV5.png">
+
+                <p>A background shader offshoot of this project (produced about a month before I began iteration 5) can
+                    be seen as the background of <a href="https://theeoblivion.itch.io/overkill">Overkill</a> by Merlyn!
+                </p>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="wrapper alt style2">
+            <div class="inner">
+
+                <h3 id="engineRoom" class="major">Hyperdrive Room</h3>
+                <div class="meta">
+                    <p><b>Role: </b>Solo Tech Artist</p>
+                    <p><b>Software Used: </b>Blender, Git</p>
+                    <p><b>Timeframe: </b>Feb 2026 - Mar 2026</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <h6>Why?</h6>
+                <p>
+                    One of my mentors started a weekly art challenge, similar to a game jam but mostly art focused.
+                    I was rather inspired by one such theme, "engine".
+                    I chose to make a sci-fi engine room of sorts, loosely inspired by Star Wars and Star Trek.
+                </p>
+                <h6>How?</h6>
+                <p>
+                    Starting with a reactor core, I began blocking out the shape of it with primitives,
+                    then adding details with modifiers to keep things non-destructive.
+                    When adding the injector tanks, I noticed 8 verts felt sharp for a cylinder, so I gave it smooth shading.
+                </p>
+                <p>
+                    At that point I started losing my mind just placing primitives, so I started on shaders.
+                    A lot of this fell down to getting noise values right for the reactors.
+                    I used 2 passes (1 for volume scatter and 1 for emission) with shared noise/colour ramp to get it to glow.
+                </p>
+
+                <h6>So what's next?</h6>
+                <p>
+                    I think I need to focus on cinematography next, improving my lighting and framing/composition.
+                </p>
+
+                <img class="showcaseMedia"
+                     src="https://github.com/mfriesen1024/WebAssets/releases/download/v0.4-other/EngineRoomRender.png"
+                     alt="This image might be broken.">
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+                <h3 id="orbmania" class="major">Orbmania</h3>
+                <div class="meta">
+                    <p><b>Role: </b>"Lead Tinkerer" (solo dev)</p>
+                    <p><b>Software Used: </b>Godot Engine, Blender, VS, GitHub</p>
+                    <p><b>Timeframe: </b>Sept. 2024 - Nov. 2024</p>
+                </div>
+                <h6 class="major"></h6>
+
+                <p>Orbmania is a 3d level based adventure built in Godot, where the player takes control of a robotic ball that has been mistakenly been made sentient. Explore as you roll through levels and try to escape the factory.</p>
+
+                <video class="showcaseMedia" controls autoplay muted loop><source src="../videos/orbmaniaDemo.mp4" type="video/mp4" /></video>
+
+                <p>
+                    While the main focus on this was on the code, I did take the time to do all the materials procedurally in blender.
+                    The pipes and lava here are both noise textures with colour ramps mapped to albedo, roughness and emission.
+                    Honestly the biggest challenge on that side was figuring out render and import settings as I was still new to Godot at this point.
+                    I had made a grated floor/catwalk in Blender, and getting the material in Godot to import that was a bit strange.
+                </p>
+
+                <p>
+                    In future, I'll probably be doing most of my material work in engine or in code, as baking textures just bloats the project, and requires me to spend time on UV unwrapping everything.
+                </p>
+
+                <img class="showcaseMedia" src="../images/orbmaniaNotes.png" />
+
+                <p>This project is in an archived state, but is available via GitHub releases. (<a href="https://github.com/mfriesen1024/Roll-A-Ball-3/releases/latest">click here</a>)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="inner">
+            <h2 class="major">Get in touch</h2>
+            <p>If you've got anything interesting going on, feel free to contact me.</p>
+            <ul class="contact">
+                <li class="icon solid fa-envelope"><a href="mailto:mfriesen1024@gmail.com">mfriesen1024@gmail.com</a>
+                </li>
+                <li class="icon brands fa-github"><a href="https://github.com/mfriesen1024">mfriesen1024</a></li>
+                <li class="icon brands fa-youtube"><a href="https://www.youtube.com/@mFriesen1024">@mFriesen1024</a>
+                </li>
+                <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/mfriesen1024/">mfriesen1024</a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Matthew Friesen 2025, All rights reserved.</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+</body>
+</html>
